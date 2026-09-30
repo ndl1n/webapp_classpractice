@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <h1>My Task Manager</h1>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="panel" aria-labelledby="main-task-title">
+        <!-- Checkpoint 1-2: 這裡使用 header、main、section、form、label、ul/li 與 button，讓任務管理區有清楚的語意結構。 -->
+        <div class="section-heading">
+          <div>
+            <h2 id="main-task-title">任務清單</h2>
+          </div>
+        </div>
+
+        <form class="task-form" id="task-form">
+          <label for="task-input">新增任務</label>
+          <div class="input-row">
+            <input
+              id="task-input"
+              type="text"
+              placeholder="請新增內容"
+              autocomplete="off"
+            />
+            <button type="submit">新增</button>
+          </div>
+          <p class="message" id="task-message" aria-live="polite"></p>
+        </form>
+
+        <section class="filter-section" aria-label="篩選任務">
+          <span>篩選</span>
+          <div class="filter-buttons" role="group" aria-label="任務篩選">
+            <button class="filter-button active" type="button" data-filter="all">全部</button>
+            <button class="filter-button" type="button" data-filter="active">未完成</button>
+            <button class="filter-button" type="button" data-filter="completed">已完成</button>
+          </div>
+        </section>
+
+        <ul class="task-list" id="task-list" aria-label="任務清單"></ul>
+
+        <section class="stats-bar" aria-label="任務統計資訊">
+          <p>共 <strong id="total-count">0</strong> 項</p>
+          <p>未完成 <strong id="active-count">0</strong> 項</p>
+          <p>已完成 <strong id="completed-count">0</strong> 項</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
